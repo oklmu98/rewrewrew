@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+
+  <link href="style.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<!-- Prevent Scroll -->
+<!-- Give your "body" the id of "page-top" to load page from start(top of the page) -->
+<!-- Give your "body" the class of "no-scroll-y" to hide the scroll bar -->
+<body id="page-top" class="no-scroll-y">
+
+  <!-- Start: Preloader -->
+  <section id="preloader-section">
+            <div id="preloader">
+                <div id="ctn-preloader" class="ctn-preloader">
+                    <div class="animation-preloader">
+                        
+                        <!-- Spinner -->
+                        <div class="spinner"></div>
+                        
+                        <!-- Start: Text Loading -->
+                        <div class="txt-loading">
+                            <span data-text-preloader="A" class="letters-loading">A</span>
+                            <span data-text-preloader="R" class="letters-loading">R</span>
+                            <span data-text-preloader="" class="letters-loading">&nbsp</span>
+                            <span data-text-preloader="C" class="letters-loading">C</span>
+                            <span data-text-preloader="R" class="letters-loading">R</span>
+                            <span data-text-preloader="E" class="letters-loading">E</span>
+                            <span data-text-preloader="A" class="letters-loading">A</span>
+                            <span data-text-preloader="T" class="letters-loading">T</span>
+                            <span data-text-preloader="I" class="letters-loading">I</span>
+                            <span data-text-preloader="V" class="letters-loading">V</span>
+                            <span data-text-preloader="E" class="letters-loading">E</span>
+                        </div>
+                        <!-- End: Text Loading -->
+
+                    </div>
+
+                    <!-- Start: Preloader sides - Model 1 -->
+                    <div class="loader-section section-left"></div>
+                    <div class="loader-section section-right"></div>
+                    <!-- End: Preloader sides - Model 1 -->
+
+                </div>
+            </div>
+        </section>
+  <!-- End: Preloader -->
+	<script>
+   $(document).ready(preloderFunction());
+
+function preloderFunction() {
+  setTimeout(function () {
+    // Force Main page to show from the Start(Top) even if user scroll down on preloader - Primary (Before showing content)
+
+    // Model 1 - Fast
+    document.getElementById("page-top").scrollIntoView();
+
+    // Model 2 - Smooth
+    // document.getElementById("page-top").scrollIntoView({behavior: 'smooth'});
+
+    // Removing Preloader:
+
+    $("#ctn-preloader").addClass("loaded");
+    // Once the preloader has finished, the scroll appears
+    $("body").removeClass("no-scroll-y");
+
+    if ($("#ctn-preloader").hasClass("loaded")) {
+      // It is so that once the preloader is gone, the entire preloader section will removed
+      $("#preloader")
+        .delay(1000)
+        .queue(function () {
+          $(this).remove();
+
+          // If you want to do something after removing preloader:
+          afterLoad();
+        });
+    }
+  }, 3000);
+}
+
+function afterLoad() {
+  // After Load function body!
+}
+
+//Code by ARiyou2000
+
+  </script>
+</body>
+</html>
